@@ -11,10 +11,12 @@ class CustomVGG(nn.Module):
             nn.Conv2d(64, 128, kernel_size=3, padding=1), nn.ReLU(),
             nn.Conv2d(128, 128, kernel_size=3, padding=1), nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2),
+
+            nn.AdaptiveAvgPool2d((7, 7))  # Added adaptive pooling
         )
         self.classifier = nn.Sequential(
             nn.Flatten(),
-            nn.Linear(128 * 56 * 56, 512), nn.ReLU(), nn.Dropout(0.5),
+            nn.Linear(128 * 7 * 7, 512), nn.ReLU(), nn.Dropout(0.5),
             nn.Linear(512, num_classes)
         )
 
