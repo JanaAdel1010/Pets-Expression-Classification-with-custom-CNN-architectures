@@ -26,5 +26,5 @@ class CustomDenseNet(nn.Module):
         x = self.block1(x)
         x = self.block2(x)
         x = self.pool(x)
-        x = x.view(x.size(0), -1)
+        x = x.view(x.size(0), -1) #flatten
         return self.fc(x)

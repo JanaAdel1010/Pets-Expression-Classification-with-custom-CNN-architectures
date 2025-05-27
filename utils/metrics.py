@@ -17,7 +17,6 @@ def evaluate_model(model, dataloader, device, class_names):
             all_preds.extend(preds.cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
 
-    # Metrics
     report = classification_report(all_labels, all_preds, target_names=class_names, digits=4, zero_division=0)
     accuracy = accuracy_score(all_labels, all_preds)
     matrix = confusion_matrix(all_labels, all_preds)

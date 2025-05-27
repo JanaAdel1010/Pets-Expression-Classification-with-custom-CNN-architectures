@@ -30,7 +30,7 @@ class CustomInception(nn.Module):
     def __init__(self, num_classes=7):
         super().__init__()
         self.incep1 = InceptionModule(3)
-        self.incep2 = InceptionModule(88)  # ← Corrected
+        self.incep2 = InceptionModule(88) 
         self.pool = nn.AdaptiveAvgPool2d(1)
         self.fc = nn.Linear(88, num_classes)
 
